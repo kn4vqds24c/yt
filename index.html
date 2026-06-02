@@ -1,4 +1,9 @@
 <meta name="color-scheme" content="dark">
 <body>
-<iframe style="width: 100%; aspect-ratio: 16/9;" src="https://www.youtube-nocookie.com/embed/VniC9Tfax-k?autoplay=1" frameborder="0" allowfullscreen></iframe>
+<script>
+    const v = new URLSearchParams(location.search).get("v");
+    if (v) {
+        document.body.innerHTML = `<iframe style="width: 100%; aspect-ratio: 16/9;" src="https://www.youtube-nocookie.com/embed/${v}" frameborder="0" allowfullscreen></iframe>`;
+    }
+</script>
 </body>
