@@ -1,9 +1,2 @@
-<meta name="color-scheme" content="dark">
-<body>
-<script>
-    const v = new URLSearchParams(location.search).get("v");
-    if (v) {
-        document.body.innerHTML = `<iframe style="width: 100%; aspect-ratio: 16/9;" src="https://www.youtube-nocookie.com/embed/${v}?autoplay=1" frameborder="0" allowfullscreen></iframe>`;
-    }
-</script>
+<body onload='window.location = `https://www.youtube-nocookie.com/embed/${new URLSearchParams(location.search).get("v")}?autoplay=1&iv_load_policy=3`'>
 </body>
