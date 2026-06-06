@@ -1,0 +1,15 @@
+<meta name="color-scheme" content="dark">
+<script>
+    let l = ['LZPmiHq8AJE', 'J28oOfvNVD8'];
+    function next() {
+        let v = l.shift();
+        document.body.innerHTML = `<iframe style="width: 100%; aspect-ratio: 16/9;" src="https://www.youtube-nocookie.com/embed/${v}" frameborder="0" allowfullscreen onload="load()"></iframe>`;
+    }
+    function load() {
+        let video = document.querySelector('video');
+        video.addEventListener('ended', (event) => {
+            next();
+        });
+    }
+</script>
+<body onload="next()"></body>
