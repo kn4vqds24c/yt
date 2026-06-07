@@ -1,8 +1,11 @@
 <meta name="color-scheme" content="dark">
 <div id="b"></div>
-<script async>
+<script>
     let l, i = 0, p, t;
-    fetch('list').then(res => res.text()).then(text => l = text.split('\n').filter(Boolean));
+    (async function fetchData() {
+        const t = await (await fetch('list')).text();
+        l = t.split('\n').filter(Boolean);
+    })()
     onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
         videoId: l[i],
         host: 'https://www.youtube-nocookie.com',
