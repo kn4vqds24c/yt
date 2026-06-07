@@ -18,6 +18,6 @@
     });
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
-<button style="font-size:36px" onclick="i = l.length; while (i--) { var j = Math.floor(Math.random() * (i + 1)); [l[i], l[j]] = [l[j], l[i]]; } p.loadVideoById(l[i])">*</button>
-<button style="font-size:36px" onclick="p.loadVideoById(l[--i])"></button>
+<button style="font-size:36px" onclick="i = l.length; while (i--) { var j = Math.floor(Math.random() * (i + 1)); [l[i], l[j]] = [l[j], l[i]]; } p.loadVideoById(l[++i])">*</button>
+<button style="font-size:36px" onclick="p.loadVideoById(l[--i])"><</button>
 <button style="font-size:36px" onclick="p.loadVideoById(l[++i])">></button>
