@@ -8,6 +8,7 @@
         player = new YT.Player('player', {
             height: '100%',
             width: '100%',
+            videoId: l[i],
             host: 'https://www.youtube-nocookie.com',
             playerVars: {
                 origin: window.location.host
@@ -19,7 +20,8 @@
         });
     }
     function onPlayerReady(e) {
-        player.loadVideoById(l[i]);
+        console.log('onPlayerReady');
+        player.playVideo();
     }
     function onPlayerStateChange(e) {
         console.log(e.data);
