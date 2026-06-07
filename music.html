@@ -2,24 +2,22 @@
 <div id="b"></div>
 <script>
     let l, i = 0, p, t;
-    (async function fetchData() {
-        const d = await (await fetch('list')).text();
-        l = d.split('\n').filter(Boolean);
-        p.loadVideoById(l[i]);
-    })()
-
-    onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
-        host: 'https://www.youtube-nocookie.com',
-        playerVars: { 'autoplay': 1 },
-        events: {
-            onStateChange: e => {
-                if (e.data == -1) {
-                    clearTimeout(t);
-                    t = setTimeout(() => document.body.insertAdjacentHTML('beforeend', `<br><a href="#" onclick="i=l.indexOf('${l[i]}');p.loadVideoById(l[i])">${p.videoTitle}</a>`), 2000);
-                } else if (e.data == 0) p.loadVideoById(l[++i]);
+    (async () => {
+        [l] = await Promise.all([fetch('list').then(r => r.text()).then(d => d.split('\n').filter(Boolean))]);
+        onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
+            videoId: l[i],
+            host: 'https://www.youtube-nocookie.com',
+            playerVars: { 'autoplay': 1 },
+            events: {
+                onStateChange: e => {
+                    if (e.data == -1) {
+                        clearTimeout(t);
+                        t = setTimeout(() => document.body.insertAdjacentHTML('beforeend', `<br><a href="#" onclick="i=l.indexOf('${l[i]}');p.loadVideoById(l[i])">${p.videoTitle}</a>`), 2000);
+                    } else if (e.data == 0) p.loadVideoById(l[++i]);
+                }
             }
-        }
-    });
+        });
+    })();
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <button style="font-size:36px" onclick="i = l.length; while (i--) { var j = Math.floor(Math.random() * (i + 1)); [l[i], l[j]] = [l[j], l[i]]; } p.loadVideoById(l[++i])">~</button>
