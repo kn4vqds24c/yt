@@ -1,20 +1,20 @@
 <meta name="color-scheme" content="dark">
 <div id="box"></div>
 <script>
-  let l = ['LZPmiHq8AJE','J28oOfvNVD8','TPzyzi-Jydc','yRYKdwE2XT4'], i = 0, p;
-  onYouTubeIframeAPIReady = () => p = new YT.Player('box', {
-    videoId: l[i],
-    host: 'https://www.youtube-nocookie.com',
-    playerVars: { 'autoplay': 1 },
-    events: {
-      onStateChange: e => {
-        console.log(e.data);
-        if (e.data == -1) {
-          document.body.insertAdjacentHTML('beforeend', `<br><a href="#" onclick="i=${i};p.loadVideoById(l[i]);">${i}</a>`);
-        } else if (e.data == 0) p.loadVideoById(l[++i]);
-      }
-    }
-  });
+    let l = ['LZPmiHq8AJE', 'J28oOfvNVD8', 'TPzyzi-Jydc', 'yRYKdwE2XT4'], i = 0, p;
+    onYouTubeIframeAPIReady = () => p = new YT.Player('box', {
+        videoId: l[i],
+        host: 'https://www.youtube-nocookie.com',
+        playerVars: { 'autoplay': 1 },
+        events: {
+            onStateChange: e => {
+                console.log(e.data);
+                if (e.data == -1) {
+                    setTimeout(() => { document.body.insertAdjacentHTML('beforeend', `<br><a href="#" onclick="i=${i};p.loadVideoById(l[i]);">${p.videoTitle}</a>`); }, 2000);
+                } else if (e.data == 0) p.loadVideoById(l[++i]);
+            }
+        }
+    });
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <input type="button" style="font-size: 36px;" value="<" onclick="--i;p.loadVideoById(l[i]);">
