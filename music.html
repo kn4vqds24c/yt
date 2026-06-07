@@ -4,7 +4,7 @@
     let l, i = 0, p, t;
     (async function fetchData() {
         const t = await (await fetch('list')).text();
-        l = t.split('\n').filter(Boolean);
+        await l = t.split('\n').filter(Boolean);
     })()
     onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
         videoId: l[i],
