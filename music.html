@@ -2,7 +2,7 @@
 <div id="b"></div>
 <script>
     let l, i = 0, p, t;
-    fetch('list').then(res => res.text()).then(text => l = text.split('\n').filter(Boolean));
+    await fetch('list').then(res => res.text()).then(text => l = text.split('\n').filter(Boolean));
     onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
         videoId: l[i],
         host: 'https://www.youtube-nocookie.com',
