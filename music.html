@@ -1,11 +1,11 @@
 <meta name="color-scheme" content="dark">
-<iframe id="f" src="https://www.youtube-nocookie.com" frameborder="0" allow="playsinline; autoplay"></iframe>>
+<div id="b"></div>
 <script>
     let l = ['LZPmiHq8AJE', 'J28oOfvNVD8', 'TPzyzi-Jydc', 'yRYKdwE2XT4'], i = 0, p, t;
-    onYouTubeIframeAPIReady = () => p = new YT.Player('f', {
+    onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
         videoId: l[i],
         host: 'https://www.youtube-nocookie.com',
-        playerVars: { 'autoplay': 1, 'playsinline': 1 },
+        playerVars: { 'autoplay': 1 },
         events: {
             onStateChange: e => {
                 if (e.data == -1) {
