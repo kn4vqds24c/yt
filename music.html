@@ -1,7 +1,8 @@
 <meta name="color-scheme" content="dark">
 <div id="b"></div>
 <script>
-    let l = await fetch('list').then(r => r.text()).then(t => t.split('\n').filter(l => l !== "")), i = 0, p, t;
+    let l = await fetch('list').then(r => r.text()).then(t => t.split('\n').filter(l => l !== ""));
+    let i = 0, p, t;
     onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
         videoId: l[i],
         host: 'https://www.youtube-nocookie.com',
