@@ -1,7 +1,7 @@
 <meta name="color-scheme" content="dark">
 <div id="b"></div>
 <script>
-    l, i = 0, p, t;
+    let l, i = 0, p, t;
     (async () => {
         [l] = await Promise.all([fetch('list').then(r => r.text()).then(d => d.split('\n').filter(Boolean))]);
         onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
