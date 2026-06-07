@@ -3,7 +3,10 @@
 <script>
     let l, i = 0, p, t;
     (async () => {
-        [l] = await Promise.all([fetch('list').then(r => r.text()).then(d => d.split('\n').filter(Boolean))]);
+        await Promise.all([
+            fetch('list').then(r => r.text()).then(d => l = d.split('\n').filter(Boolean)),
+            import('https://www.youtube.com/iframe_api')
+        ]);
         onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
             videoId: l[i],
             host: 'https://www.youtube-nocookie.com',
