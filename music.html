@@ -5,7 +5,7 @@
     onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
         videoId: l[i],
         host: 'https://www.youtube-nocookie.com',
-        playerVars: { 'autoplay': 1 },
+        playerVars: { 'autoplay': 1, 'playsinline': 1 },
         events: {
             onStateChange: e => {
                 if (e.data == -1) {
