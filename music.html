@@ -1,17 +1,16 @@
 <meta name="color-scheme" content="dark">
 <div id="box"></div>
 <script>
-  let l = ['LZPmiHq8AJE', 'J28oOfvNVD8'], i = 0, p;
+  let l = ['LZPmiHq8AJE','J28oOfvNVD8','TPzyzi-Jydc','yRYKdwE2XT4'], i = 0, p;
   onYouTubeIframeAPIReady = () => p = new YT.Player('box', {
     videoId: l[i],
     host: 'https://www.youtube-nocookie.com',
     playerVars: { origin: window.location.host },
     events: {
       onStateChange: e => {
-        if (e.data == -1) { // New video loaded
-          let {title: t, author: a} = p.getVideoData();
-          document.body.insertAdjacentHTML('beforeend', `<br><a href="#" onclick="p.loadVideoById('${l[i]}')">${t} ${a}</a>`);
-        } else if (e.data == 0) p.loadVideoById(l[++i]); // Video ended
+        if (e.data == -1) {
+          document.body.insertAdjacentHTML('beforeend', `<br><a href="#" onclick="i=${i};p.loadVideoById(l[i]);">${p.videoTitle}</a>`);
+        } else if (e.data == 0) p.loadVideoById(l[++i]);
       }
     }
   });
