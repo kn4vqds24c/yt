@@ -3,7 +3,7 @@
 <script>
     let l, i = 0, p, t;
     fetch('list').then(r => r.text()).then(d => l = d.split('\n').filter(Boolean));
-    const wait = setInterval(() => {
+    (setInterval(() => {
         if (l) {
             clearInterval(wait);
             onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
@@ -20,7 +20,7 @@
                 }
             });
         }
-    }, 50);
+    }, 50))();
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
 <button style="font-size:36px" onclick="i = l.length; while (i--) { var j = Math.floor(Math.random() * (i + 1)); [l[i], l[j]] = [l[j], l[i]]; } p.loadVideoById(l[++i])">~</button>
