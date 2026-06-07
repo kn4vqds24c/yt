@@ -1,7 +1,8 @@
 <meta name="color-scheme" content="dark">
 <div id="b"></div>
 <script>
-    let l = ['LZPmiHq8AJE', 'J28oOfvNVD8', 'TPzyzi-Jydc', 'yRYKdwE2XT4'], i = 0, p, t;
+    let l = ['LZPmiHq8AJE', 'J28oOfvNVD8', 'TPzyzi-Jydc', 'yRYKdwE2XT4']
+    , i = 0, p, t;
     onYouTubeIframeAPIReady = () => p = new YT.Player('b', {
         videoId: l[i],
         host: 'https://www.youtube-nocookie.com',
@@ -17,5 +18,6 @@
     });
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
-<button style="font-size:36px" onclick="p.loadVideoById(l[--i])"><</button>
+<button style="font-size:36px" onclick="i = l.length; while (i--) { var j = Math.floor(Math.random() * (i + 1)); [l[i], l[j]] = [l[j], l[i]]; } p.loadVideoById(l[i])">*</button>
+<button style="font-size:36px" onclick="p.loadVideoById(l[--i])"></button>
 <button style="font-size:36px" onclick="p.loadVideoById(l[++i])">></button>
