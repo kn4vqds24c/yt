@@ -5,14 +5,15 @@
   onYouTubeIframeAPIReady = () => p = new YT.Player('box', {
     videoId: l[i],
     host: 'https://www.youtube-nocookie.com',
-    playerVars: { origin: window.location.host },
+    playerVars: { 'autoplay': 1 },
     events: {
       onStateChange: e => {
         if (e.data == -1) {
-          document.body.insertAdjacentHTML('beforeend', `<br><a href="#" onclick="i=${i};p.loadVideoById(l[i]);">${p.videoTitle}</a>`);
+          document.body.insertAdjacentHTML('beforeend', `<br><a href="#" onclick="i=${i};p.loadVideoById(l[i]);">${p.getVideoData().title}</a>`);
         } else if (e.data == 0) p.loadVideoById(l[++i]);
       }
     }
   });
 </script>
 <script src="https://www.youtube.com/iframe_api"></script>
+<br><a href="#" onclick="p.seekTo(p.getDuration())">next</a>
